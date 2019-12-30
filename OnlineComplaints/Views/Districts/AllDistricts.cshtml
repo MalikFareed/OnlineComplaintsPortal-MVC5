@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BusinessLayer.District>
+
+@{
+    ViewBag.Title = "All Districts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>All Districts</h2>
+
+<p>
+    @Html.ActionLink("Add New District", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DistrictID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DistrictName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DistrictID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DistrictName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.DistrictID }) |           
+            @Html.ActionLink("Delete", "Delete", new { id = item.DistrictID })
+        </td>
+    </tr>
+}
+
+</table>
